@@ -1,3 +1,7 @@
+* {
+    color: white;
+}
+
 body{
     background-color: #A59D97;
 }
@@ -12,6 +16,7 @@ h2.aboutme{
 }
 p{
     color: white;
+    
 }
 #nav{
     list-style-type:none;
