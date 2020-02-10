@@ -7,6 +7,12 @@ body{
     padding: 10px;
     text-align: center;               
 }
+h2.aboutme{
+    color: white;
+}
+p{
+    color: white;
+}
 #nav{
     list-style-type:none;
     margin: 0;
