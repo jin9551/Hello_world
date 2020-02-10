@@ -4,6 +4,7 @@
 
 body{
     background-color: #A59D97;
+
 }
 .welcome{
     border: 10px solid red;
@@ -14,10 +15,7 @@ body{
 h2.aboutme{
     color: white;
 }
-p{
-    color: white;
-    
-}
+/*navigation bar */
 #nav{
     list-style-type:none;
     margin: 0;
@@ -35,6 +33,17 @@ li a{
     padding: 14px 16px;
     text-decoration: none;
 }
-li a: hover {
-    background-color: #111;
+li a:hover {
+    background-color: #555;
+}
+
+
+div{
+    background-color: #555;
+    margin-left: 10px;
+    margin-right:10px;
+    margin-top: 10px;
+    padding-right: 1%;
+    padding-left: 1%;
+    padding-bottom: 100%
 }
