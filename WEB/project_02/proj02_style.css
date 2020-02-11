@@ -7,13 +7,10 @@ body{
 
 }
 .welcome{
-    border: 10px solid red;
+    /*border: 10px solid red;
     width, height: 100%;
-    padding: 10px;
+    padding: 10px;*/
     text-align: center;               
-}
-h2.aboutme{
-    color: white;
 }
 /*navigation bar */
 #nav{
@@ -23,7 +20,7 @@ h2.aboutme{
     overflow: hidden;
     background-color:#333;
 }
-li{
+li.nav{
     float: left;
 }
 li a{
@@ -43,6 +40,7 @@ div{
     margin-left: 10px;
     margin-right:10px;
     margin-top: 10px;
+    margin-bottom: 10px;
     padding-right: 1%;
     padding-left: 1%;
     padding-bottom: 100%
