@@ -27,13 +27,15 @@ ul#nav>li a{
     display: block;
     color: white;
     text-align: center;
-    padding: 14px 16px;
+    padding: 14px 18px;
     text-decoration: none;
 }
 ul#nav>li a:hover {
     background-color: #555;
 }
-
+ul#nav>li a:active{
+    color: orange;
+}
 ul{
     list-style-position: inside;
     background-color: gray;
