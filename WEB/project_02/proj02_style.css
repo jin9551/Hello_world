@@ -20,20 +20,25 @@ body{
     overflow: hidden;
     background-color:#333;
 }
-li.nav{
+ul#nav>li{ /*자식 선택자로 nav 아이디 아래에 있는 리스트에만 적용*/
     float: left;
 }
-li a{
+ul#nave>li a{
     display: block;
     color: white;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
 }
-li a:hover {
+ul#nav>li a:hover {
     background-color: #555;
 }
 
+ul{
+    list-style-position: inside;
+    background-color: gray;
+    
+}
 
 div{
     background-color: #555;
@@ -43,5 +48,6 @@ div{
     margin-bottom: 10px;
     padding-right: 1%;
     padding-left: 1%;
-    padding-bottom: 100%
+    padding-bottom: 100%;
+    padding-top: 10px;
 }
