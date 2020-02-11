@@ -23,7 +23,7 @@ body{
 ul#nav>li{ /*자식 선택자로 nav 아이디 아래에 있는 리스트에만 적용*/
     float: left;
 }
-ul#nave>li a{
+ul#nav>li a{
     display: block;
     color: white;
     text-align: center;
@@ -37,9 +37,9 @@ ul#nav>li a:hover {
 ul{
     list-style-position: inside;
     background-color: gray;
-    
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
-
 div{
     background-color: #555;
     margin-left: 10px;
