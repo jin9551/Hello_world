@@ -10,7 +10,10 @@ body{
     /*border: 10px solid red;
     width, height: 100%;
     padding: 10px;*/
-    text-align: center;               
+    text-align: center;             
+}
+h1.welcome>a{
+    text-decoration: none;
 }
 /*navigation bar */
 #nav{
