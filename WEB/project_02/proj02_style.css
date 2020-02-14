@@ -1,5 +1,6 @@
 * {
     color: white;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 body{
@@ -43,7 +44,7 @@ ul{
     list-style-position: inside;
     background-color: gray;
     padding-top: 10px;
-    padding-bottom: 10px;
+    padding-bottom: 10px;    
 }
 div{
     background-color: #555;
