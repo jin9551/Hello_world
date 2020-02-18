@@ -7,7 +7,198 @@
     overflow: auto
 }
 
+.jin-container:after,
+.jin-container:before,
+.jin-panel:after,
+.jin-panel:before,
+.jin-row:after,
+.jin-row:before,
+.jin-row-padding:after,
+.jin-row-padding:before,
+.jin-cell-row:before,
+.jin-cell-row:after,
+.jin-clear:after,
+.jin-clear:before,
+.jin-bar:before,
+.jin-bar:after {
+    content: "";
+    display: table;
+    clear: both
+}
+/* padding */
 
+.jin-padding-small {
+    padding: 4px 8px !important
+}
+.jin-padding {
+    padding: 8px 16px !important
+}
+.jin-padding-large {
+    padding: 12px 24px !important
+}
+
+/*bar settings*/
+.jin-sidebar {
+    height: 100%;
+    width: 200px;
+    background-color: #fff;
+    position: fixed !important;
+    z-index: 1;
+    overflow: auto
+}
+
+.jin-bar-block .jin-bar-item {
+    width: 100%;
+    display: block;
+    padding: 8px 16px;
+    text-align: left;
+    border: none;
+    white-space: normal;
+    float: none;
+    outline: 0
+}
+.jin-bar-block.jin-center .jin-bar-item {
+    text-align: center
+}
+
+/* main setting + imgs */
 #main {
     transition: margin-right 0.4s
+}
+
+
+img {
+    vertical-align: middle
+}
+
+img {
+    border-style: none
+}
+
+/* font sizes */
+.jin-tiny {
+    font-size: 10px !important
+}
+.jin-small {
+    font-size: 12px !important
+}
+.jin-medium {
+    font-size: 15px !important
+}
+.jin-large {
+    font-size: 18px !important
+}
+.jin-xlarge {
+    font-size: 24px !important
+}
+.jin-xxlarge {
+    font-size: 36px !important
+}
+.jin-xxxlarge {
+    font-size: 48px !important
+}
+.jin-jumbo {
+    font-size: 64px !important
+}
+.jin-left-align {
+    text-align: left !important
+}
+.jin-right-align {
+    text-align: right !important
+}
+.jin-justify {
+    text-align: justify !important
+}
+.jin-center {
+    text-align: center !important
+}
+
+.jin-hide-small {
+    display: none !important
+}
+
+/* color */
+.jin-black,
+.jin-hover-black:hover {
+    color: #fff !important;
+    background-color: #000 !important
+}
+
+/* button settings */
+button,
+input,
+select,
+textarea,
+optgroup {
+    font: inherit;
+    margin: 0
+}
+
+button,
+input {
+    overflow: visible
+}
+button,
+select {
+    text-transform: none
+}
+button,
+[type=button],
+[type=reset],
+[type=submit] {
+    -webkit-appearance: button
+}
+button::-moz-focus-inner,
+[type=button]::-moz-focus-inner,
+[type=reset]::-moz-focus-inner,
+[type=submit]::-moz-focus-inner {
+    border-style: none;
+    padding: 0
+}
+button:-moz-focusring,
+[type=button]:-moz-focusring,
+[type=reset]:-moz-focusring,
+[type=submit]:-moz-focusring {
+    outline: 1px dotted ButtonText
+}
+
+.jin-btn,
+.jin-button {
+    border: none;
+    display: inline-block;
+    padding: 8px 16px;
+    vertical-align: middle;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    background-color: inherit;
+    text-align: center;
+    cursor: pointer;
+    white-space: nowrap
+}
+.jin-btn:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)
+}
+.jin-btn,
+.jin-button {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none
+}
+.jin-disabled,
+.jin-btn:disabled,
+.jin-button:disabled {
+    cursor: not-allowed;
+    opacity: 0.3
+}
+.jin-disabled *,:disabled * {
+    pointer-events: none
+}
+
+.jin-button:hover {
+    color: #000 !important;
+    background-color: #ccc !important
 }
