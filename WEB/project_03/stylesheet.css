@@ -1,0 +1,30 @@
+#jj-container{
+    width: 940px;
+    margin: 0px auto;
+    padding: 20px;
+    border: 1px solid #bcbcbc;
+  }
+  #jj-header {
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 1px solid #bcbcbc;
+  }
+  #jj-content {
+    width: 580px;
+    padding: 20px;
+    margin-bottom: 20px;
+    float: right;
+    border: 1px solid #bcbcbc;
+  }
+  #jj-sidebar {
+    width: 260px;
+    padding: 20px;
+    margin-bottom: 20px;
+    float: left;
+    border: 1px solid #bcbcbc;
+  }
+  #jj-footer {
+    clear: both;
+    padding: 20px;
+    border: 1px solid #bcbcbc;
+  }
