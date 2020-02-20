@@ -4,7 +4,7 @@ body{
 }
 
 #jj-container {
-  margin-left:160px;
+  margin-left:200px;
   padding: 0px 10px;
 
 }
@@ -34,7 +34,7 @@ body{
 /* sidebar */
 #jj-sidebar {
   height: 100%;
-  width: 160px;
+  width: 200px;
   position: fixed;
   z-index: 1;
   top: 0;
@@ -54,6 +54,28 @@ body{
   color:#778899;
 }
 
+/* nav bar */
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 199px;
+  background-color: #111;
+  color: #D3D3D3;
+}
+
+li a {
+  display: block;
+  color: #111;
+  padding: 8px 16px;
+  text-decoration: none;
+  color:#D3D3D3;
+}
+
+li a:hover {
+  background-color: #555;
+}
+
 
 @media screen and (max-height: 450px) {
   .sidebar {padding-top: 15px;}
@@ -68,3 +90,4 @@ body{
   margin-left:auto;
   margin-right:auto;
 }
+
