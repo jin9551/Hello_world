@@ -1,4 +1,7 @@
 /* body */
+*{
+  color: #D3D3D3;
+}
 body{
   display: block;
 }
@@ -61,6 +64,7 @@ ul {
   padding: 0;
   width: 199px;
   background-color: #111;
+  font-size: 24px;
   color: #D3D3D3;
 }
 
