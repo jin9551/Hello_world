@@ -7,7 +7,7 @@ body{
 }
 
 #jj-container {
-  margin-left:200px;
+  margin-left:160px;
   padding: 0px 10px;
 
 }
@@ -37,7 +37,7 @@ body{
 /* sidebar */
 #jj-sidebar {
   height: 100%;
-  width: 200px;
+  width: 160px;
   position: fixed;
   z-index: 1;
   top: 0;
@@ -62,7 +62,7 @@ ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
-  width: 199px;
+  width: 159px;
   background-color: #111;
   font-size: 24px;
   color: #D3D3D3;
@@ -95,3 +95,17 @@ li a:hover {
   margin-right:auto;
 }
 
+/* button */
+button {
+  border: none;
+  display: inline-block;
+  padding: 8px 8px;
+  vertical-align: middle;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  background-color: inherit;
+  text-align: center;
+  cursor: pointer;
+  white-space: nowrap
+}
