@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>form chapter summary</title>
+    <style>
+        body {
+            border: 1px solid black;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="" method="GET">
+    <fieldset>
+        <legend>상세정보:</legend>
+        <label for="user-name">이름: <input type="text" name="name" value="이름" maxlength="20"/></label> <br />
+        <label for="user-email">이메일: <input type="email" name="email" value="이메일" required="required"/></label>
+    </fieldset>
+
+    <fieldset>
+        <legend>리뷰:</legend>
+        <label for="survey-head">
+            사이트를 알게 된 경위는?
+            <select name="route">
+                <option value="friends" selected="selected">지인</option>
+                <option value="advertisement">광고</option>
+                <option value="etc.">기타등등</option>
+            </select>
+        </label>
+        <br>
+        <br>
+        <p>
+            다시 방문하시겠습니까?
+       
+        <br>
+        <label> 
+        <input type="radio" name="return" value="yes">네</label> <br>
+        <label> 
+        <input type="radio" name="return" value="no">아니요</label> <br>
+        <label> 
+        <input type="radio" name="return" value="unsure">잘 모르겠음</label> <br>
+        </P>
+
+        <p>의견:</p>
+        <textarea name="opinion" cols = 30 rows = 5></textarea>
+        <br>
+        <label>
+        <input type="checkbox" name="agree" value="agreed">이메일 업데이트에 가입
+        </label>
+        <br>
+        <input type="submit" value="리뷰 전송">
+    </fieldset>
+</form>
+</body>
+
+</html>
