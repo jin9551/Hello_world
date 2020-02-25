@@ -92,12 +92,46 @@
         <!-- post는 다양한 정보들을 전달할 수 있다. 예)파일 -->
         <form action="" method="post">
             <label for="depart">출발일자:</label>
-            <input id="depart" type ="date" name="depart">
+            <input id="depart" type="date" name="depart">
+            <input type="submit" value="전송">
+        </form>
+    </div>
+
+    <!-- send email! 이메일형식을 체크한다. -->
+    <div>
+        <form action="">
+            <p>이메일 주소를 입력해 주세요:</p>
+            <input type="email" name="email">
+            <input type="submit" value="전송">
+        </form>
+    </div>
+
+    <!-- send URL! URL형식을 체크한다. -->
+    <div>
+        <form action="">
+            <p>웹사이트 주소를 입력해 주세요:</p>
+            <input type="url" name="url">
             <input type="submit" value="전송">
         </form>
     </div>
 
 
+    <!-- 검색. -->
+    <div>
+        <form action="">
+            <p>검색:</p>
+            <input type="search" name="search">
+            <input type="submit" value="전송">
+        </form>
+    </div>
+    <!-- 검색 with 키워드 -->
+    <div>
+        <form action="">
+            <p>검색:</p>
+            <input type="search" name="search" placeholder="검색어 입력">
+            <input type="submit" value="전송">
+        </form>
+    </div>
 </body>
 
 </html>
