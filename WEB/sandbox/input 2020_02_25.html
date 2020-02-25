@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Email To</title>
+    <style>
+        div {
+            padding: 10px;
+            margin: 10px;
+            border: 1px solid;
+            border-color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <!-- 파일 업로드 -->
+        <!-- 나중에 method 방식을 post로 바꾸자 -->
+        <form action="">
+            <p>MP3 포맷으로 노래를 올리세요</p>
+            <input type="file" name="user-song" /> <br />
+            <input type="submit" value="upload" /><br>
+        </form>
+
+
+        <!-- 전송버튼 -->
+        <form action="">
+            <p>이메일 목록에 가입하세요</p>
+            <input type="text" name="email" />
+            <input type="submit" name="subscribe" value="subscribed" />
+        </form>
+
+        <!-- 이미지 버튼 -->
+        <form action="">
+            <p>이번은 이미지 버튼</p>
+            <input type="text" name="email" />
+            <input type="image" src="Jinha Jeong.jpg" alt="버튼" width="100" height="100" />
+        </form>
+
+        <!-- button & hidden 컨트롤 -->
+        <form action="">
+            <!-- <button>과 </button> 태그 사이에의 텍스트와 이미지의 결합을 의미한다.  -->
+            <button><img src="Jinha Jeong.jpg" alt="버튼" width="10" height="10" /></button>
+            <input type="hidden" name="bookmakr" value="lyrics" />
+        </form>
+
+    </div>
+    <!-- 레이블 label -->
+    <div>
+        <!-- 폼에 레이블 붙이기 -->
+        <label>나이: <input type="text" name="age" /></label>
+        <br>
+        <input id="female" type="radio" name="gender" value="f" />
+        <label for="female">여성</label>
+        <input id="male" type="radio" name="gender" value="m" />
+        <label for="male">남성</label>
+    </div>
+    <!-- fieldset -->
+    <!-- 필드셋은 그룹화된 폼 컨트롤들을 만들 수 있다. 그리고 자동으로 박스를 만들어준다 -->
+    <div>
+        <fieldset>
+            <!-- legend는 폼 컨트롤 그룹의 이름을 알려준다. -->
+            <legend>연락처</legend>
+            <label>이메일: <br>
+                <input type="text" name="email"><br></label>
+            <label>휴대폰: <br>
+                <input type="text" name="phone"><br></label>
+            <label>전화: <br>
+                <input type="text" name="telephone"><br></label>
+        </fieldset>
+    </div>
+
+    <!-- 폼 유효성 검토 -->
+    <div>
+        <form action="">
+            <label for="username">사용자명:</label>
+            <!-- 몇몇의 옛 브라우저들은 자바스크립트를 이용해서 유요성을 검토해야한다.
+            required는 사용자가 반드시 입력해야하는 필수 폼 요소에서 사용할 수 있다.
+            다른 검증 요소도 있으니 확인해 보자. -->
+            <input type="text" name="username" required="required"> <br>
+            <label for="password">비밀번호:</label>
+            <input type="password" name="password" required="required"><br>
+            <input type="submit" value="전송">
+        </form>
+    </div>
+
+
+    <!-- 날짜 입력 -->
+    <div>
+        <!-- post는 다양한 정보들을 전달할 수 있다. 예)파일 -->
+        <form action="" method="post">
+            <label for="depart">출발일자:</label>
+            <input id="depart" type ="date" name="depart">
+            <input type="submit" value="전송">
+        </form>
+    </div>
+
+
+</body>
+
+</html>
