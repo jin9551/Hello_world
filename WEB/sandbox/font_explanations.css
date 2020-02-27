@@ -1,0 +1,139 @@
+@font-face {
+    font-family: 'ChunkFiveRegular';
+    src: url('fonts/chunkfive.eot');
+    src: url('fonts/chunkfive.eot?#iefix') format('embedded-opentype'),
+        url('fonts/chunkfive.woff') format('woff'),
+        url('fonts/chunkfive.ttf') format('truetype') url('fonts/chunkfive.svg#ChunkFiveRegular') format('svg');
+
+        /* 
+        다양한 폰트 포맷은 다음과 같은 순서로 코드에 작성한다.
+
+        1. eot
+        2. woff
+        3. ttf/otf
+        4. svg
+        
+        */
+}
+
+.fontweight {
+    font-weight: bold; 
+    font-weight: normal;
+
+    /* font-weight 프로퍼티는 텍스트를 굴게 표현할 수 있다.
+    font-weight 프로퍼티에 설정하는 두 개의 값은 다음과 같다.
+    normal
+    bold */
+}
+
+.fontstyle {
+    font-style: normal;
+    font-style: italic;
+    font-style: oblique;
+
+    /* font-style 프로퍼티에 설정할 수 있는 세개의 값은 이렇다
+    normal
+    italic 기울어진 필기체
+    oblique 기울어진 폰트
+     */
+}
+
+
+.texttransform {
+    text-transform: uppercase;
+    text-transform: lowercase;
+    text-transform: capitalize;
+
+    /* text-transform 프로퍼티는 다음 값 중 하나를 설정해 텍스트를 대문자나 소문자로 변경하는데 사용한다.
+    uppercase : 텍스트를 모두 대문자로
+    lowercase : 텍스트를 모두 소문자로
+    capitalize : 각 단어의 첫 글자를 대문자로 나타낸다.
+    */
+}
+
+
+.textdecoration {
+    text-decoration: none;
+    text-decoration: underline;
+    text-decoration: overline;
+    text-decoration: line-through;
+    text-decoration: blink;
+
+    /* text-decoration 프로퍼티는 다음과 같은 값을 지정할 수 있다. 
+    none: 텍슽트에 적용한 효과를 제거한다
+    underline: 텍스트에 밑줄을 추가한다.
+    overline: 텍스트에 윗줄을 추가한다.
+    line-thorugh: 텍스트의 가운데에 줄을 긋는다
+    blink: 텍스트를 깜빡이게 한다.
+    */
+}
+
+
+.lineheight {
+    line-height: 1.4em;
+    /* line-height 프로퍼티는 어센더와 디센더 사이의 간격을 조절한다. */
+}
+
+.letterspacing {
+    letter-spacing: 0.2em;
+
+}
+.wordspacing {
+    word-spacing: 1em;
+}
+
+/* letter spacing 프로퍼티는 문자 사이의 간격을
+word spacing 프로퍼티는 단어 사이의 간격을 조정한다. */
+
+
+.textalign {
+    text-align: center;
+    
+    /* text-align 프로퍼티는 텍스트의 정렬을 설정한다.
+    left
+    right
+    cetner
+    justify: 단락에서 마지막 줄을 제외하고 양쪽으로 정렬한다. 
+     */
+}
+
+.verticalalign {
+    vertical-align: text-top;
+    vertical-align: baseline;
+    vertical-align: text-bottom;
+
+    /* vertical-align 프로퍼티는 이용하는 경우가 많다.
+    
+    이 프로퍼티는 비록 테이블 셀과 함께 사용할 경우 세로 정렬의 효과를 나타낼 수 있지만, <p>와 <div> 같은 블록 요소의 가운데이 있는 텍스트를 세로로 정렬하기 위한 용도는 '아니다'
+    
+    vertical-align 프로퍼티에 설정할 수 있는 값은 다음과 같다.
+
+    baseline
+    sub
+    super
+    top
+    text-top 
+    middle
+    bottom
+    text-bottom
+    */
+}
+
+
+.textindent {
+    text-indent: 100;
+    /* 음수면 왼쪽으로 양수면 오른쪽으로 텍스트의 첫 번째 줄이 이동한다. */
+}
+
+.textshadow {
+    text-shadow: 1px 1px 0px #000000;
+
+    /* 
+    첫 번쨰 값은 그림자의 가로 길이다.
+    두 번째 값은 그림자의 세로 길이다.
+    세 번째 값은 그림자의 번짐 효과 길이다. 이 값은 선택적이므로 꼭 넣을 필요가 없다.
+    네 번째 값은 그림자의 색상이다.
+    */
+}
+
+
