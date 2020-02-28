@@ -112,4 +112,30 @@ li.coming-soon {
     /* 이 리스트는 보이지 않는다. */
 }
 
+/* visibility 박스 숨기기 */
+
+/* visibility 프로퍼티는 화면에서 박스를 숨긴다. 하지만 요소가 차지하는 영역은 그대로 남겨둔다.
+
+visibility 프로퍼티에는 두 가지 값을 설정할 수 있다.
+
+hidden
+요소를 숨긴다.
+
+visible 
+요소를 나타낸다.
+
+*/
+
+li {
+    display: inline;
+    margin-right: 10px;
+}
+
+li.coming-soon {
+    visibility: hidden;
+}
+
+
+
+
 

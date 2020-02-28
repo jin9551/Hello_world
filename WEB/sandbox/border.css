@@ -157,3 +157,87 @@ p {
     단, 갓ㅂ은 특정 순서대로 지정해야한다.
     두깨, 스타일, 색상 순인거 같다. */
 }
+
+
+
+/* border-image */
+
+/* css3: 이미지 테두리 */
+
+/* border-image 프로퍼티는 이미지를 박스의 테두리에 적용한다. 이때 이미지를 배경 이미지로 간주하고 이 이미지를 다음과 같은 아홈조각으로 분할한다.
+
+ ㅇ ㅇ ㅇ
+ ㅇ ㅁ ㅇ
+ ㅇ ㅇ ㅇ
+
+border-image 프로퍼티에 설정하는 세 가지 정보는 다음과 같다.
+
+1. 이미지의 URL
+2. 이미지 영역
+3. 이미지 표시 방법(설정값은 다음과 같다).
+    stretch 이미지를 늘린다.
+    repeat 이미지를 반복한다.
+    round 이미지를 적절한 크기로 반복한다(가로 세로에 맞게 이미지 크기를 변경).
+    
+-moz-border-image와 -webkit-border-image 프로퍼티가 css 명세서에는 없지만 초기 버전의 파이어폭스와 크롬, 사파리에서 이러한 효과를 표시하는 데 필요하다.
+
+브라우져        렌더링 엔진     접두사          
+--------------------------------------------------
+파이어폭스      게코(Gecko)     -moz-
+크롬,사파리     웹킷(Webkit)    -webkit-
+
+
+*/   
+
+
+p.img {
+    -moz-border-image: url("images/dot.gif") 11 11 11 11 stretch;
+    /* 이미지는 좌측상단, 우측상단, 우측하단, 좌측하단 순으로 시계방향으로 배치된다.
+    마지막에 있는 stretch등의 설정값은 각 면의 이미지에 적용된다. */
+    -webkit-border-image: url("images/dot.gif") 11 11 11 11 stretch;
+    border-image: url("images/dot.gif") 11 11 11 11 stretch;
+}
+
+
+/* box-shadow 박스 그림자 */
+
+/* text-shadow와 유사하게 동작한다. */
+
+p.shadow {
+    -moz-box-shadow: 5px 5px 5px 5px #777777;
+    -webkit-box-shadow: 5px 5px 5px 5px #777777;
+    box-shadow:  5px 5px 5px 5px #777777;
+
+    /* 수평 거리, 수직 거리, 번짐 거리, 확장 거리와 색상 */
+}
+
+
+/* css3: 둥근 모서리 */
+
+/* border-radius */
+
+/* css3에서는 border-radius 프로퍼티를 사용해 박스에 둥근 모서리를 만들 수 있는 기능을 도입했다.
+값은 반지름의 크기를 의미라며 단위는 픽셀이다. */
+
+/* 
+    border-top-right-radius
+    border-bottom-right-radius
+    border-bottom-left-radius
+    border-top-left-radius
+    네 가지 프로퍼티로 각 모서리의 값을 개별적으로 지정할 수 있다.    
+*/
+
+p.rndcorner {
+    border: 5px solid red;
+    padding: 20px;
+    width: 275px;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    /* border-radiius 프로퍼티가 지원이 안되는 브라우저를 위한 라인 */
+}
+
+p.oval {
+    border-top-left-radius: 80px 50px;
+    /* 이런식으로 가로 세로의 반지름을 다르게 하면 타원형이 나온다. */
+}

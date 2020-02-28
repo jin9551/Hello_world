@@ -1,0 +1,200 @@
+/* 글머리 기호 */
+
+/* list=style-type */
+
+/* list-style-type 프로퍼티는 글머리 기호(marker라고도 부름)의 스타일을 제어한다.
+
+list-style-type 프로퍼니틑 <ol>, <ul>, <li> 요소에 적요하는 규칙에 사용할 수 있다.
+
+순서 없는 목록
+
+none
+disc
+circle
+square
+
+순서 있는 목록
+
+decimal
+decimal-leading-zero
+lower-alpha
+upper-alpha
+lower-roman
+upper-roman
+
+*/
+
+ol{
+    list-style-type: lower-roman;
+}
+
+
+/* list-style-image */
+
+/* 글머리 기호 이미지 */
+
+/* list-style-image 프로퍼티를 사용하여 글머리 기호에 이미지를 지정할 수 있다. */
+
+ul {
+    list-style-image: url("");
+}
+
+
+/* list-style-position */
+
+/* 글머리 기호 위치 */
+
+/* 목록은 기본적으로 들여쓰기가 된다. 그리고 list-sytle-position 프로퍼티는 글머리 기호가 항목을 포함하는 박스의 내부에 표시할지 아니면 외부에 표시할지 여부를 지정한다.
+
+list-sytle-position 프로퍼티에 지정할 수 있는 두 가지 값은 다음과 같다.
+
+outside
+글머리 기호가 텍스트 박스의 왼쪽에 위치한다(기본 값). 
+
+inside
+글머리 기호가 텍스트 박스의 내부에 우치한다(텍스트 들여쓰기).
+
+
+*/
+
+ul{
+    width: 250px;
+}
+
+ul.illuminations {
+    list-style-position: outside;
+}
+
+ul.season {
+    list-style-position: inside;
+}
+
+
+/* 목록 단축형 */
+
+/* list-style */
+
+/* 몇 가지 css 속성과 마찬가지로 목록 스타일에 대한 단축형이 존재한다.
+이 단축형에는 list-style-type, list-style-position, list-style-image의 값을 한꺼번에 지정할 수 있다(순서 무관). */
+
+ol{
+    list-style: inside lower-roman;
+    width: 300px;
+}
+ol>li {
+    margin: 10px 0px 0px 0px;
+}
+
+
+/* table -skip- */
+
+
+
+
+/* form style css */
+
+/* 모든 브라우저에서 동일하게 보이는 폼 스타일을 얻고 싶으면
+
+http://formalize.me 에서 css 파일을 내려 받자.*/
+
+
+/* 텍스트 입력 sytle */
+
+input {
+    font-size: 120%;
+    color: #5a5854;
+    background-color: #f2f2f2;
+    border: 1px solid #bdbdbd;
+    border-radius: 5px;
+    padding: 5px 5px 5px 30px;
+    background-repeat: no-repeat;
+    background-position: 8px 9px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+
+input:focus, input:hover {
+    background-color: #ffffff;
+    border: 1px solid #b1e1e4;
+}
+
+input#email {
+    background-image: url("");
+}
+
+/* 
+font-size는 사용자가 입력할 수 있는 텍스트의 크기를 설정한다.
+
+color는 텍스트 색상을 설정한다.
+
+background-color는 입력의 배경색을 설정한다.
+
+border는 입력 박스의 가장자리에 테두리를 추가한다. 
+
+border-radius는 둥근 모서리를 만드는 데 사용한다.
+
+:focus 유사 클래스는 텍스틑 입력을 사용 중일 때 텍스트 입력의 배경색을 변경하는 데 사용한다.
+
+:hover 유사 클래스는 사용자가 마우스를 올려 놨을 때 텍스틑 입력의 배경색을 변경하는 데 사용한다
+
+background-image는 박스에 배경 이미지를 추가한다. 
+
+ */
+
+
+/* 전송 버튼 스타일 */
+
+/* submit button */
+
+input#submit {
+    color: #444444;
+    text-shadow: 0px 1px 1px #ffffff;
+    border-bottom: 2px solid #b2b2b2;
+    background-color: #b9e4e3;
+    background: -webkit-gradient(linear,left top, left bottom, from(#beeae9), to(#a8cfce));
+    /* moz, o, ms */
+}
+input#submit:hover{
+    color: #444444;
+    border: 1px solid #a4a4a4;
+    border-top: 2px solid #b2b2b2;
+    background-color: #a0dbc4;
+    background: -webkit-gradient(linear,left top, left bottom, from(#beeae9), to(#a8cfce));
+    /* moz, o, ms */
+}
+
+/* 
+color는 버튼에 있는 텍스트의 색상을 변경하는 데 사용된다.
+
+text-shadow는 텍스트에 3d효과를 제공한다.
+
+border-bottom은 버튼의 아래 테두리를 약간 더 두껍게 만드는 데 사용된다. 이는 더 실감나는 3d 효과를 제공한다.
+
+background-color는 전송 버튼을 주변 항목으로부터 눈에 띄게 만들 수 있다. 버튼에 일관된 스타일을 적용하면 사용자는 사이트와의 상호작용을 좀 더 쉽게 이해할 수 있다.
+그라디언트를 지원하는 브라우저의 경우 그라디언트 배경을 추가할 수도 있다.
+
+*/
+
+
+/* 필드셋 & 필그셋 제목 스타일 */
+
+/* fieldset */
+
+
+fieldset {
+    width: 350px;
+    border: 1px solid #dcdcdc;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: right;
+}
+
+legend {
+    background-color: #efefef;
+    border: 1px solid #dcdcdc;
+    border-radius: 10px;
+    padding: 10px 20px;
+    text-align: left;
+    text-transform: uppercase;
+}
