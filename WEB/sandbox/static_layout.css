@@ -28,8 +28,9 @@
 
 
 body {
-    width:950px;    
+    width:960px;    
     margin: 0 auto; 
+    text-align: center;
     /* auto는 가운데 정렬 */
 }
 
@@ -44,10 +45,6 @@ body {
     margin: 10px;
 }
 
-#nav {
-    text-decoration: none;
-}
-
 .column1, .column2, .column3 {
     background-color: #efefef;
     width: 300px;
@@ -58,8 +55,13 @@ body {
 li {
     display: inline;
     padding: 5px;
+   
 }
 
+li a {
+    text-decoration: none;
+    color: black
+}
 li a:hover {
     color: white;
 }
