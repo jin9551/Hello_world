@@ -1,0 +1,22 @@
+/* 레이아웃 */
+
+/* position */
+
+/* position:static 정상적인 흐름 */
+
+/* 기본적인 방식으므로 CSS 프로퍼티를 지정할 필요는 없으며, 구문은 다음과 같다. 
+position:static;  */
+
+body {
+    width: 750px;
+    font-family: Arial, Verdana, sans-serif;
+    color: #665544;
+}
+
+h1 {
+    background-color: #efefef;
+    padding:10px;
+}
+p {
+    width: 450px;
+}

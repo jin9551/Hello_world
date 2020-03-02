@@ -198,3 +198,32 @@ legend {
     text-align: left;
     text-transform: uppercase;
 }
+
+/* widht, color, background-color, border, border-radius, padding 등을 이용해 fieldset의 외관을 변경할 수 있다. */
+
+
+/* 커서 스타일 */
+
+/* cursor */
+
+a {
+    cursor:move;
+}
+
+/* cursor 프로퍼티는 사용자에게 나타내는 마우스 커서의 타입을 제어한다.
+
+예컨대 폼에서 사용자가 마우스를 올려 놓았을 때의 커서 모양을 손 모양으로 설정할 수 있다.
+
+cursor 프로퍼티에 일반적으로 사용되는 값은 다음과 같다.
+
+auto
+crosshair
+default
+pointer
+move
+text
+wait
+help
+url("cursor.gif")
+
+*/
