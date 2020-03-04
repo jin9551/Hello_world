@@ -58,3 +58,9 @@ lessframework.com
 developer.yahoo.com/yui/grids/
 
 
+960gs에서 grid_12는 12열 너비의 블록을 생성한다.
+          grid_4는 4열 너비의 블록을 생성한다.
+
+container_12는 전체 페이지에 대한 컨테이너처럼 동작하고 12열 그리드를 사용함을 나타낸다.
+
+
