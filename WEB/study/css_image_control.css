@@ -110,3 +110,44 @@ body.attachment{
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
+
+
+/* 배경 위치 background-position */
+
+/* 이미지를 반복하지 않을 경우 background-position 프로퍼티를 사용하여 브라우저 창에서의 배경 이미지 위치를 지정할 수 있다.
+
+background-position 프로퍼티는 일반적으로 한 쌍의 값을 설정한다. 첫 번째 값은 가로 위치를 두번쨰 값은 세로 위치를 나타낸다.
+
+*/
+
+body.valueName {
+    background-image: url("");
+    background-repeat: no-repeat;
+    background-position: center top;
+}
+
+body.valueNum {
+    background-image: url("");
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    /* 왼쪽 상단 모서리는 0% 0%이다 */
+}
+
+
+/* background 단축형 */
+
+/* background 프로퍼티는 background-color 프로퍼티를 포함해 지금까지 살펴본 모든 배경 프로퍼티에 대한 단축형이다.
+background 프로퍼티는 다음과 같은 순서를 지정해야 한다. 하지만 지정하고 싶지 않다면 생략할 수 있다.
+
+1: background-color
+2: background-image
+3: background-repeat
+4: background-attachment
+5: background-position
+
+*/
+
+body.short {
+    background: #ffffff url("") no-repeat top right;
+}
+     
