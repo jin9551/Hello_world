@@ -1,0 +1,63 @@
+@import url("color.css");
+
+* {
+    color: #DCE0E6 !important; 
+    text-align: center;
+}
+
+body{
+background-color: #1F1F20;
+}
+
+.article, #footer{
+    background-color: #2B4C7E;
+    margin-top: 20px;
+    padding: 10px 0px 5px 0px;
+}
+
+#nav {
+    list-style-type: none;
+    margin: 5px;
+    padding:0;
+    overflow: hidden;
+    background-color:#606D80;
+}
+#nav ul{
+    padding:0;
+}
+
+#nav li a{
+    display: inline;
+    text-align: center;
+    text-decoration: none;
+}
+
+#nav li a:hover {
+    background-color:  #567EBB;
+}
+
+
+.article{
+    height: auto;
+}
+.article .sub{
+    background-color: #567EBB;
+    margin: 10px;
+    padding: 5px 10px 5px 10px; 
+}
+
+#footer {
+    margin-bottom: 20px;
+}
+
+li {
+    display: inline;
+    padding: 20px;
+    text-decoration: none;
+}
+
+#topimage {
+    margin-top: 20px;
+    width: 300px;
+    height: 460px;
+}
