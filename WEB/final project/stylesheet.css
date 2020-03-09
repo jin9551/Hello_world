@@ -15,27 +15,49 @@ background-color: #1F1F20;
     padding: 10px 0px 5px 0px;
 }
 
+
 #nav {
-    list-style-type: none;
-    margin: 5px;
-    padding:0;
-    overflow: hidden;
-    background-color:#606D80;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 50px;
+    margin:20px 0px 0px 0px;  /* 쓸 데 없는 공백 제거 */
+    padding: 0; /* 쓸 데 없는 공백 제거 */
+    background-color: #1F1F20;
+   /* 목록 기호 제거 */
+    justify-content: left; /* 요소들을 중심축의 좌측에 정렬 */
+    align-items: center;  /* 요소들을 교차축의 중앙에 정렬 */
+   
 }
-#nav ul{
-    padding:0;
+#nav ul {
+    padding: 0;
 }
 
-#nav li a{
+#nav li {
     display: inline;
-    text-align: center;
+    padding: 15px;
+    cursor:pointer; /* 마우스 커서를 pointer 모양으로 함 */
+    list-style-type: none;
     text-decoration: none;
 }
 
-#nav li a:hover {
-    background-color:  #567EBB;
-}
 
+
+#nav li a {
+    text-align:center;
+    text-decoration: none;
+    color: #DCE0E6;
+}
+/* 
+#nav li:nth-child(1) {
+ ** :nth-child(n)은 n 번째의 요소를 선택합니다. **  
+    background-color: #606D80;
+}
+*/
+
+#nav li:hover {
+    background-color: #606D80;
+}
 
 .article{
     height: auto;
@@ -46,15 +68,19 @@ background-color: #1F1F20;
     padding: 5px 10px 5px 10px; 
 }
 
-#footer {
-    margin-bottom: 20px;
+.article .sub *{ /* sub 아래 모든 요소에게 적용 */
+ text-align: left;
 }
 
-li {
-    display: inline;
-    padding: 20px;
-    text-decoration: none;
+#footer {
+    background-color: #606D80 !important;
+    margin-bottom: 20px;
 }
+#footer .copyright{
+    padding: 0px 12px 0px 0px;
+    text-align: right;
+}
+
 
 #topimage {
     margin-top: 20px;
