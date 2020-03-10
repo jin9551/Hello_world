@@ -7,6 +7,7 @@
 
 body{
 background-color: #1F1F20;
+
 }
 
 .article, #footer{
@@ -17,15 +18,16 @@ background-color: #1F1F20;
 
 
 #nav {
+
     display: flex;
     flex-direction: row;
     width: 100%;
     height: 50px;
-    margin:20px 0px 0px 0px;  /* 쓸 데 없는 공백 제거 */
+    margin: 0px;  /* 쓸 데 없는 공백 제거 */
     padding: 0; /* 쓸 데 없는 공백 제거 */
-    background-color: #1F1F20;
+    background-color: #606D80;
    /* 목록 기호 제거 */
-    justify-content: left; /* 요소들을 중심축의 좌측에 정렬 */
+    justify-content: center; /* 요소들을 중심축의 좌측에 정렬 */
     align-items: center;  /* 요소들을 교차축의 중앙에 정렬 */
    
 }
@@ -56,7 +58,7 @@ background-color: #1F1F20;
 */
 
 #nav li:hover {
-    background-color: #606D80;
+    background-color: #567EBB;
 }
 
 .article{
