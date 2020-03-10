@@ -1,12 +1,36 @@
 @import url("color.css");
 
+
+
 * {
     color: #DCE0E6 !important; 
     text-align: center;
 }
 
+h2{
+    margin-left: 20px;
+    text-align:left;
+}
+
 body{
     background-color: #1F1F20;
+    margin-top:0;
+}
+
+#top{
+    background-color: #1F1F20;
+}
+
+#header{
+    margin-top:100px;
+    margin-bottom:70px;
+}
+
+/* 상단 이미지 */
+#topimage {
+    margin-top: 40px;
+    width: 940px;
+    height: 580px;
 }
 
  .article, #footer{
@@ -16,16 +40,19 @@ body{
 }
 
 
+
+
+/* 상단 네비게이션 바 */
 #nav {
     position: fixed;
     display: flex;
     flex-direction: row;
     width: 960px;
-    height: 50px;
+    height: 60px;
     margin-left: auto;
     margin-right: auto;  /* 쓸 데 없는 공백 제거 */
     padding: 0; /* 쓸 데 없는 공백 제거 */
-    background-color: #606D80;
+    background-color: #1F1F20;
    /* 목록 기호 제거 */
     justify-content: center; /* 요소들을 중심축의 좌측에 정렬 */
     align-items: center;  /* 요소들을 교차축의 중앙에 정렬 */
@@ -58,8 +85,15 @@ body{
 */
 
 #nav li:hover {
-    background-color: #567EBB;
+    background-color: #606D80;
 }
+
+/* 네비게이션 바 끝 */
+
+
+
+
+
 
 .article{
     height: auto;
@@ -74,6 +108,7 @@ body{
  text-align: left;
 }
 
+
 #footer {
     background-color: #606D80 !important;
     margin-bottom: 20px;
@@ -83,9 +118,3 @@ body{
     text-align: right;
 }
 
-
-#topimage {
-    margin-top: 20px;
-    width: 300px;
-    height: 460px;
-}
