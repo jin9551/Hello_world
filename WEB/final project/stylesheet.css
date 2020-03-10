@@ -20,9 +20,10 @@ body{
     position: fixed;
     display: flex;
     flex-direction: row;
-    width: 100%;
+    width: 960px;
     height: 50px;
-    margin: 0px;  /* 쓸 데 없는 공백 제거 */
+    margin-left: auto;
+    margin-right: auto;  /* 쓸 데 없는 공백 제거 */
     padding: 0; /* 쓸 데 없는 공백 제거 */
     background-color: #606D80;
    /* 목록 기호 제거 */
