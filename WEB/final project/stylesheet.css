@@ -32,7 +32,8 @@ body{
     width: 940px;
     height: 580px;
 }
-.article, #footer{
+
+ .article, #footer{
     background-color: #2B4C7E;
     margin-top: 20px;
     padding: 10px 0px 5px 0px;
