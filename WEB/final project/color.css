@@ -1,21 +1,21 @@
 /* color palette */
 
-h1 {
+.black {
     color: #1F1F20;
 }
 
-h2 {
+.dark-blue {
     color: #2B4C7E;
 }
 
-h3 {
+.blue {
     color: #567EBB;
 }
 
-h4 {
-    color: #606D80;
+.grey {
+    background-color: #606D80;
 }
 
-h5 {
-    color: #DCE0E6;
+.white {
+    background-color: #DCE0E6;
 }
