@@ -18,6 +18,8 @@ create user jin@localhost identified by '1111';
 -- 모든 권한 삭제 REVOKE ALL PRIVILEGES ON *.* FROM 사용자명@호스트;
 -- 권한 확인 SHOW GRANTS FOR 사용자명;
 grant all privileges on haksa.* to jin@localhost;
+-- 계정 생성과 동시에 권한 부여
+grant all privileges on haksa.* to jin@localhost with grant option;
 
 
 
