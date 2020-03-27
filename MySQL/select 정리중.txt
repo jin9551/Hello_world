@@ -1,0 +1,283 @@
+[형식] 
+
+[예시]
+
+
+
+ROUND 함수는 소숫점 이하 자릿수에서 반올림 (자리수는 양수, 0, 음수를 갖을 수 있다.)한다.
+TRUNCATE 함수는 숫자를 소수점 이하 자릿수에서 버린다. n은 자릿수를 소숫점 이하로 정하며, 해당숫자가 자릿수보다 소숫점이 모자랄 경우 0값으로 대치한다.
+
+
+[형식] ROUND(column_name or value, n) 
+      TRUNCATE(column_name or value, n )
+
+[예시]
+    round(123.234, 2) ---> 123.23
+    round(163.234, -2) ---> 200
+    truncate(123.234, 2) ---> 123.23
+    truncate(163.234, 2) ---> 100
+
+
+FLOOR 함수는 위에서 다룬 TRUNCATE 함수와 유사하여 소수점 아래의 수를 무조건 절삭하여 정수 값을 반환하고
+CEIL 함수는 소수점 아래의 수는 무시하고 무조건 올림을 하여 정수를 반환한다.
+
+[형식]
+     FLOOR(column_name or value) ---> 123
+     CEIL(column_name or value) ---> 124
+[예시]
+    FLOOR(123.723) ---> 123
+    CEIL(123.123) ---> 124
+
+MOD함수는 첫 번째 인수를 두 번째 인수로 나누어 나머지를 반환한다.
+
+[형식] 
+    MOD(column_name1 OR value1 (분자), column_name2 OR value2 (분모))
+[예시]
+    mod(10,3) ---> 1
+    mod(5,8) ---> 5
+
+
+ABS 함수는 절대값을 출력하는 함수이다.
+
+POW 함수 또는 POWER 함수
+
+제곱의 값을 구하는 함수이며 소숫점이 있는 경우에도 실행이된다. 단, 음수는 양수로 승처리된다.
+
+[형식] 
+    pow(column_name or value, n)
+[예시]
+    pow(2,4) ---> 16
+
+GREATEST, LEAST 함수
+GREATEST함수는 주어진 숫자 중 가중 큰 수를 반환하는 것이고,
+LEAST함수는 반대로 가장 작은 수를 반환한다.
+
+[형식] 
+    GREATEST(column_name or value, column_name or value)
+    LEAST(column_name or value,...)
+[예시]
+    GREATEST(1,2,3) ---> 3
+    LEAST(1,2,3) ---> 1
+
+
+
+스칼라 함수
+
+
+[형식] 
+    CONCAT(column_name1 or string1, column_name or string2)
+    SUBSTRING(column_name or string, m, n)
+    LENGTH(column_name or string)
+    INSTR(column_name or string, character)
+    LPAD(column_name or string, m, character)
+    RPAD(column_name or string, m, character)
+    LOWER(column_name or string)
+    UPPER(column_name or string)
+    INICAP(column_name or string)
+
+
+[예시] 
+    CONCAT('data', 'base') ---> database
+    SUBSTRING('korea', 1,3) ---> kor
+    LENGTH('lee_woo') ---> 7
+    INSTR('korea', 'e') ---> 4 #위치 반환
+    LPAD('korea',6,'*') ---> ******korea
+    RPAD('korea',6,'#') ---> korea######
+    LOWER('KOREA') ---> korea
+    UPPER('korea') ---> KOREA
+    INICAP('korea UNIVERSITY') ---> Korea University
+
+
+
+
+날짜 및 시간 처리
+
+1. DATE 날짜타입이다. 'yyyy-mm-dd' 형식
+2. DATETIME 날짜와 시간이 합쳐진 타입이다. 'yyyy-mm-dd hh:mm:ss' 형태이다
+3. TIMESTAMP[(M)] 날짜 및 시간 타입이다. '1970-01-01 00:00:00'에서 2037년까지 나타낸다. [(M)]자리에는 출력될 길이를 나타내는 숫자를 쓸 수 있는데
+    14,12,8,6 을 쓸 수 있다. 지정하지 않으면 기본적으로 14자리로 나타낸다. insert나 update문을 사용할 때 매우 유용하다.
+4. TIME 시간타입이다. '-838:59:59' 에서 '838:59:59' 까지 나타낼 수 있다.
+5. YEAR[(2/4)] 연도를 나타내는 타입이다. 2자리 혹은 4자리로 나타낼 수 있다.
+
+
+
+1) NOW() 또는 SYSDATE() : 현재 날짜와 시간을 반환한다. 2020-03-27 17:02:30
+2) CURDATE() 또는 CUURENT_DATE() : 현재 날짜를 반환한다. 2020-03-27
+3) CURTIME() CURRENTTIME() : 현재 시간을 반환한다. 17:04:30
+4) DAYOFMONTH(date) : 몇일인지를 리턴 한다. DAYOFMONTH(NOW()) -> 27
+5) DAYOFWEEK(date) : 날짜를 한 주의 몇 번째 요일인지를 나타내는 숫자로 리턴한다. (1 = 일요일, 2 = 월요일, ... 7 = 토요일)
+   WEEKDAY(date) : 날짜를 한 주의 몇 번째 요일인지를 나타내는 숫자로 리턴한다. (0 = 월요일, 1=화요일 ... 6 = 일요일)
+6) DAYOFYEAR(date) : 1년 중 며칠이 지났는가를 리턴한다. 
+7) DATE_ADD 와 DATE_SUB : DATE_ADD함수는 날짜에서 기준값만큼 더하고, DATE_SUB은 뺀다. DATE_ADD(NOW(), INTERVAL 3DAYS)
+8) DATE_FORMAT(날짜,'형식') : 날짜를 형식에 맞게 출력
+
+%M
+월이름 (january..december)
+
+%W
+요일명 (sunday..saturday)
+
+%D
+영어식 접미사를 붙인 일(1st, 2nd, 3rd, etc.)
+
+%Y
+4자리 년도
+
+%y
+2자리 년도
+
+%a
+짧은 요일명(sun..sat)
+
+%d
+일(01..31)
+
+%e
+일(1..31)
+
+%m
+월(01..12)
+
+%c
+월(1..12)
+
+%b
+짧은 월이름 (jan..dec)
+
+%j
+한해의 몇 번째 요일인가 (001..366)
+
+%H
+24시 형식의 시간 (01..24)
+
+%k
+24시 형식의 시간 (01..24)
+
+%h
+12시 형식의 시간 (01..12)
+
+%i
+12시 형식의 시간 (01..12)
+
+%l
+시간 (1..12)
+
+%i
+분 (00..59)
+
+%r
+시분초12시 형식 (hh:mm:ss [ap]m)
+
+%T
+시분초 24시 형식 (hh:mm:ss)
+
+%s
+초 (00..59)
+
+%s
+초 (00..59)
+
+%p
+am 또는 pm 문자
+
+%w
+일주일의 몇 번째 요일인가(0=sunday..6=saturday)
+
+%U
+한해의 몇 번째 주인가(0..52). 일요일이 시작일
+
+%u
+한해의 몇 번째 주인가(0..52). 월요일이 시작일
+
+%%
+`%' 문자를 나타냄
+
+ 
+
+위 표에 나와 있는 것들을 제외한 모든 문자는 그냥 그대로 출력된다.
+
+ 
+
+mysql> select date_format('1997-10-04 22:23:00', '%w %m %y');
+
+-> 'saturday october 1997'
+
+mysql> select date_format('1997-10-04 22:23:00', '%h:%i:%s');
+
+-> '22:23:00'
+
+mysql> select date_format('1997-10-04 22:23:00',
+
+'%d %y %a %d %m %b %j');
+
+-> '4th 97 sat 04 10 oct 277'
+
+mysql> select date_format('1997-10-04 22:23:00',
+
+'%h %k %i %r %t %s %w');
+
+-> '22 22 10 10:23:00 pm 22:23:00 00 6'
+
+
+
+출처: https://jang8584.tistory.com/7 [개발자의 길]
+
+
+데이터형 변환 함수
+
+1) 형변환 함수 (cast functions)
+
+    CAST(exprssion AS type(길이))
+    CONVERT(expression,type(길이)
+
+    CONVERT(expr USING transcoding_name)
+
+타입값은 아래의 것들 중 하나
+
+binary
+char
+date
+datetime
+signed
+time
+unsigned
+
+
+create table new_table select cast('2020-01-01' as date);
+
+https://dang-dang12.tistory.com/23 <---- 그냥 이거 봐
+
+
+
+시스템 변수
+
+시스템 변수는 thread-specific 변수와 global 변수가 있다. global 변수는 set global 명령으로, session 변수는 set session 명령으로 변경할 수 있다.
+시스템 변수를 변경하는 방법은 다음과 같다. 
+
+1) global 변수 변경
+
+set global sort_buffer_size=value;
+또는 set @@global.sort_buffer_size=value;
+
+2) session 변수 변경 (여기서 session=local 임)
+set session sort_buffer_size=value;
+또는 set @@session.sort_buffer_size=value;
+또는 set session.sort_buffer_size=value;
+
+변수를 확인해 볼 수 있는 명령은 다음과 같다.
+
+1) global 변수인 경우
+select @@global.sort_buffer_size;
+또는 show global variables like 'sort_buffer_size';
+
+2) session 변수인 경우
+select @@session.sort_buffer_size;
+또는 show session variables like 'sort_buffer_size';
+
+
+현재의 autocommit 상태를 확인하는 방법은 다음 예제와 같다.
+
+select @@session.autocommit;
+
+
+global과 session 변수:

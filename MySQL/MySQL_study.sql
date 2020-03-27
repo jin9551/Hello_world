@@ -22,7 +22,8 @@ grant all privileges on haksa.* to jin@localhost;
 grant all privileges on haksa.* to jin@localhost with grant option;
 
 
-
+-- 특정 테이블의 칼럼 조회 (코멘트 포함)
+show full columns from table_name;
 
 
 -- 유저 삭제
@@ -38,6 +39,23 @@ flush PRIVILEGES;
 -- 테이블 칼럼 , 제약조건 추가 (ADD)
 -- 테이블 변경 (CHANGE, MODIFY)
 -- 테이블 제약 조건 제거 (DROP)
+
+alter table table_name
+rename test_name;
+
+-- 칼럼이름 변경
+alter table table_name
+rename column name to name1;
+-- 테이블에 주석 달기
+alter table table_name
+comment = 'comment';
+-- 주석확인
+show create table table_name;
+
+-- 칼럼에 주석 추가
+alter table table_name change column_name colum_name data_type(varchar,int,...) 널 여부(not null) comment 'this is the comment'
+
+
 
 -- update는 특정정보를 where절로 골라서 변경한다.
 
@@ -246,3 +264,9 @@ from tbl_selected_db;
 --mysql 종료
 
 quit;
+
+
+
+-- make a copy of the table
+
+create table copy_cat as select * from cat;  
