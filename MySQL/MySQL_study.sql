@@ -55,6 +55,9 @@ show create table table_name;
 -- 칼럼에 주석 추가
 alter table table_name change column_name colum_name data_type(varchar,int,...) 널 여부(not null) comment 'this is the comment'
 
+-- primay key 추가
+alter table exercise_copy add primary key(ex_no);
+
 
 
 -- update는 특정정보를 where절로 골라서 변경한다.
@@ -170,89 +173,6 @@ create table student(
     references department(dept_code)
 ) engine = innoDB;
 
-create table fee(
-    stu_no varchar(10) Not null,
-    fee_year varchar(4) Not null,
-    fee_term int(1) Not null,
-    fee_enter int(7),
-    fee_price int(7) Not null,
-    fee_total int(7) Default '0' Not null,
-    jang_code char(2) Null,
-    jang_total int(7),
-    fee_pay int(7) Default '0' Not null,
-    fee_div char(1) Default 'N' Not null,
-    fee_date date Not null,
-    primary key (stu_no,fee_year,fee_term)
- ) engine = innoDB;
-
- create table score(
-     stu_no char(10) Not null,
-     sco_year char(4) Not null,
-     sco_term int(1) Not null,
-     req_point int(2),
-     take_point int(2),
-     exam_avg float(2,1),
-     exam_total int(4),
-     sco_div char(1),
-     sco_date date,
-     primary key (stu_no,sco_year,sco_term)
- ) engine = innoDB;
-
- create table subject(
-     sub_code char(5) Not null,
-     sub_name varchar(50) Not null,
-     sub_ename varchar(50),
-     create_year char(4),
-     primary key (sub_code)
- ) engine = innoDB;
-
- create table professor(
-     prof_code char(4) Not null,
-     prof_name char(10) Not null,
-     prof_ename varchar(30),
-     create_date date default null,
-     primary key (prof_code)
- ) engine = innoDB;
-
- create table circle(
-     cir_num int(4) Not null auto_increment,
-     cir_name char(30) Not null,
-     stu_no char(10) Not null,
-     stu_name char(10) Not null,
-     president char(1) default '2' Not null,
-     primary key (cir_num)
- ) engine = innoDB;
-
- create table post(
-     post_no varchar(6) Not null,
-     sido_name varchar(20) Not null,
-     sido_eng varchar(40) Not null,
-     sigun_name varchar(20) Not null,
-     sigun_eng varchar(40) Not null,
-     rowtown_name varchar(20) Not null,
-     rowtown_eng varchar(40) Not null,
-     road_code varchar(12),
-     road_name varchar(80),
-     road_eng varchar(80),
-     underground_gubun varchar(1),
-     building_bon int(5),
-     building_boo int(5),
-     management_no varchar(25) Not null,
-     baedal varchar(40),
-     town_building varchar(200),
-     row_code varchar(10) Not null,
-     row_dongname varchar(10) Not null,
-     ri_name varchar(20),
-     administration_name varchar(40),
-     mountain_gubun varchar(1),
-     bungi int(4),
-     town_no varchar(2),
-     ho int(4),
-     gu_post_no varchar(6),
-     post_seq varchar(3),
-     primary key (management_no)
- ) engine = innoDB;
-
 
 
 -- view 생성
@@ -270,3 +190,17 @@ quit;
 -- make a copy of the table
 
 create table copy_cat as select * from cat;  
+
+
+CREATE TABLE [대상 테이블명] SELECT * FROM [원본 테이블명]
+
+-- 이미 있는 테이블에 덮어 씌울 때
+INSERT INTO [대상 테이블명] SELECT * FROM [원본 테이블명]  
+
+-- 다른 db에서 가져올 때
+mysql> INSERT INTO [대상 데이터베이스명].[대상 테이블명] 
+
+        -> SELECT * FROM [원본 데이터베이스명].[원본테이블명] 
+
+-- 중복값때문에 신경 쓰일때
+ INSERT ignore INTO .....

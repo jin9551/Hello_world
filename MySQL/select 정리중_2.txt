@@ -1,0 +1,87 @@
+select 명령문은 많은 절(clause)로 구성되어 있다.
+이에 관한 정의는 아래와 같다.
+
+<select statement> ::=
+<select clause>
+<from caluse>
+[<where clause>]
+[<group clause>]
+[<having clause>]
+[<order clause>]
+
+-주의: 질의 순서는 고정되어 있다. order by절이 사용된다면 이 절은 항상 가장 나중에 사용된다.
+
+
+
+[예제 1] 등록 테이블("fee")에서 학금을 1,000,000 이상 지급 받은 학생 중에서 2회 이상 지급받은 학생의 학번과, 지급 받은 횟수를 학번 내림차순으로 출력하라.
+
+select stu_no, count(*)
+from fee
+where jang_totla > 1000000
+group by stu_no
+having count(*)
+order by stu_no desc;
+
+위의 예제에서 각 절이 수행되는 순서는 2번(from절) -> 3번(where절) -> 4번(group by절) -> 5번(having절) -> 1번(select절) -> 6번(oredr by절) 순으로 처리가 진행된다.
+
+
+
+group by 절은 그룹별로 검색을 할 때 사용된다. group by 절을 사용할 때는 그룹 함수를 같이 사용해야 한다. 대표적인 그룹 함수에는 COUNT(), AVG(), MIN(), MAX(), SUM()등이 있다.
+
+
+having 절과 where 절을 서로 비교할 수 있는데, 그 차이점은 where 절은 from 절에서 생성된 중간 테이블에서 동작하고, having 절은 group by 절에서 생성된 중간 테이블에서 동작한다.
+
+select 절은 최종 결과 테이블에 표현될 열을 지정하기 위해서 사용된다.
+
+order by 절은 마지막으로 수행되는 절로 중간 결과 테이블의 내용에 영향을 주지 않는다.
+그러나 마지막까지 선택된 행을 정령한다.
+
+
+
+
+from 절은 사용하려는 테이블을 지정하기 위해서 사용된다.
+이는 테이블 참조(table reference)를 통하여 수행될 수 있는데, 테이블 참조는 가능하다면 가명이 따라오는 테이블 명세로 구성된다.
+
+MySQL은 테이블 명세를 두 부분으로 구성되는데, 테이블 소유자의 이름 다음에는 테이블의 이름만 오게 된다.
+즉, from 절에서 다른 사람이 생성한 테이블을 참조할 수 있다는 것을 의미하며, 이 때 테이블 이름 앞에 소유자의 이름을 지정해야 한다.
+
+열 명세(specification)
+select 명령문에서 열의 이름 앞에 열이 포함되어 있는 테이블의 이름을 지어할 수 있다. 이러한 것을 영의 자격(column qualification)이라 한다.
+사실 열을 참조하는 것은 두 부분으로 구성되어 있다.
+<table specification>.<column specification>
+
+[예제 2]
+select stu_no       select student.stu_no
+from student;       from student;  
+
+
+다중 테이블 명세
+
+지금까지는 from 절에 하나의 테이블 명세만 사용하였다. 만약 결과 테이블에서 서로 다른 테이블로부터 데이터를 가져오려 한다면 from절에 여러 개의 테이블을 지정해야한다.
+
+select blahblah...
+from student,attend
+where student.stu_no = attend.attend_no 
+
+from 테이블의 각 행은 attend 테이블의 좌측에 나란히 정렬되어 있다. from절의 중간 결과 테이블에 있는 전체 열은 한 테이블의 전체 열과 다른 테이블의 전체 열을 더한 것이며,
+전체 행의 수는 한 테이블의 행의 수와 다른 테이블에 있는 행의 수를 곱한 것과 같다. 이와 같은 결과를 관련 된 테이블의 카티션 프로덕트(Cartesian product)라 한다.]
+
+-설명
+from 절의 중간 결과 행의 수 : a 테이블의 행 수 * b 테이블의 행 수
+from 절의 중간 결과 열의 수 : a 테이블의 열 수 + b 테이블의 열 수
+
+예를 들면
+a 테이블의 행수가 17행이고, 열의 수가 15열
+b 테이블의 행수가 18해이고, 열의 수가 11열
+결과는 
+행 수 : 17 * 18 = 306행
+열 수 : 15 + 11 = 26열
+
+
+
+가명(Alias)
+from 절에 여러 개의 테이블 명세가 사용되는 경우에 가명(pseudonym 또는 alias)을 사용하는 것이 더 편리할 때가 있다. 가명은 테이블의 임시 대체 이름이다.
+
+select s.stu_no,stu_name, fee_div
+from student s, fee f
+where s.stu_no = f.stu_no;
