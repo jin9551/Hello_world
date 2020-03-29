@@ -1,0 +1,205 @@
+where 절에서 사용할 수 있는 조건은 다음과 같다.
+
+1. 관계 연산자
+2. and, or, not과 결합된 조건
+3. between 연산자
+4. in 연산자
+5. like 연산자
+6. null 연산자
+7. 부속 질의어 함께 사용되는 in 연산자
+8. 부속 질의어 함꼐 사용되는 관계 연산자
+9. any와 all 연산자
+10. exists 연산자
+
+
+
+* 관계 연산자
+
+=, <, >, <=, >=, <>(!=과 동일) 같은 기호들이다.
+
+
+
+
+* and, or, not을 사용한 다중 조건
+
+만약 where 절이 하나 이상의 and나 or 연산자를 가지고 있다면 평가는 왼쪽에서 오른쪽으로 수행(좌 결합 법칙)된다.
+
+where c1 and c2 or c3 and c4 
+1. c1 and c2 -> a1
+2. a1 or c2 -> a2
+3. a2 and c4 -> 최종결과
+
+
+* between 연산자
+SQL은 주어진 값의 범위에 어떤 값이 포함되어 있는지를 결정하도록 하는 between이라는 특별한 연산자를 제공한다.
+
+select stu_no, stu_name, age
+from ages
+where age >= 20
+and age <= 23;
+
+위의 명령문은 between 연산자를 사용하여 다음과 같이 다시 작성할 수 있다.
+
+select stu_no, stu_name, age
+from ages
+where age between 20 and 23;
+
+
+
+* in 연산자를
+
+select stu_no, stu_name, post_no
+from student
+where post_no = '1000'
+or post_no = '1000'
+or post_no = '1000';
+
+위의 명령문은 in 연산자를 사용하여 다음과 같이 다시 작성할 수 있다.
+
+select stu_no, stu_name, post_no
+from student
+where post_no in ('1000','1000','1000');
+
+* like 연산자
+
+like '%'
+%(퍼센트 기호)는 특별한 의미를 가지고 있는데, 이를 패턴(pattern) 또는 마스트(mask)라 한다.
+마스크에서 특별한 기호로 사용되는 퍼센트 기호는 0 또는 그 이상의 임의의 모든 문자를 의미한다.
+
+
+* null 연산자
+null 연산자는 특정한 열이 값을 가지고 있지 않는 행을 선택할 때 사용한다.
+
+
+
+* 부속질의어에서 ni 연산자
+
+select stu_no, stu_name
+from student
+where stu_no in (select stu_no from fee); <- 이부분을 말한다.
+
+
+[예제] "20191009"인 학생이 가입한 동아리를 제외한 다른 동아리에 적어도 한 번 가입을 한 학생의 학번과 이름을 출력하라.
+
+select stu_no, stu_name
+from student
+where stu_no in (
+    select stu_no
+    from circle
+    where cir_name not in (
+        select cir_name
+        from circle
+        where stu_no ='20191009'
+    )
+);
+
+위와 같이 부속질의어(subquery)에서 두번이나 질의를 할 수 있다.
+
+
+* 부속 질의어에서 관계 연산자
+
+위와 별반 차이없다.
+
+select stu_no, stu_name,birthday
+from student
+where substring(birthday,1,4) <     // 이부분
+(select substring(birthday,1,4) 
+fromg student
+where stu_name ='장수인');
+
+
+* all과 any 연산자
+
+부속 질의어를 사용하는 3번째 방법은 all과 any 연산자를 사용하는 것이다. 이러한 연산자는 부속 질의어에서 in 연산자를 사용하는 것과 유사하다.
+그리고 any 연산자 대신에 some 연산자를 사용할 수 있는데, any 연산자와 some 연산자는 동의어이다.
+
+[예제] 가장 나이가 많은 학생의 학번, 이름, 생년월일을 출력하라.
+
+select stu_no, stu_name, birthday
+from student
+where birthday <= all  // 이부분 주의
+(select birthday
+from student);
+
+any 연산자는 all 연산자의 반대가 되는 연산자이다.
+
+any(not in) / all(in)
+
+any는
+
+다수의 비교값 중 한개라도 만족하면 true 이다.
+- IN  과 다른점은 비교 연산자를 사용한다는 점이다.
+
+예) 
+  SELECT * FROM emp WHERE sal >ANY(950, 3000, 1250)
+
+- 이 문장은 ">"연산자를 사용했다. 이 쿼리의 결과는 950보다 큰 값은 모두 출력하게 된다.
+
+- 'sal > 950 OR sal > 3000 OR sal > 1250'  와 동일하다. 
+
+all은
+- 전체 값을 비교하여 모두 만족해야만 true 이다.
+
+1
+SELECT * FROM emp WHERE sal>ALL(950, 3000, 1250)
+
+- 3000보다 큰 값만 표시된다. 'sal > 950 AND sal > 3000 AND sal > 1250' 과 동일하다.
+
+
+* exists 연산자
+
+-서브쿼리에서만 쓸 수 있다.
+
+select stu_no, stu_name
+from student
+where stu_no in (select stu_no from fee);
+
+위의 명령문은 다음과 같이 exists 연산자를 사용하여 다시 작성할 수 있다.
+
+select stu_no, stu_name
+from student
+where exists
+(select * from fee where stu_no = student.stu_no);
+
+만역 fee 테이블이 학생과 관련된 동일한 학번인 행이 적어도 하나 이상 있다면 그 행은 조건을 만족하게된다.
+
+여기 참조
+https://icty.tistory.com/entry/Oracle-EXISTS-%EC%97%B0%EC%82%B0%EC%9E%90%EC%9D%98-%ED%99%9C%EC%9A%A9
+
+
+
+* 부정 조건
+
+SQL에서 자주 발생하는 오류의 대하여 설명한다. 이러한 오류는 부정 조건을 가지고 있는 오류라고도 한다. 
+열에서 특별한 값을 가지고 있지 않는 행을 찾는 조건을 부정 조건(condition with negation)이라고 한다.
+부정 조건은 긍정 조건 앞에 not을 위치시킴으러써 만들 수 있다. 
+두가지 예제를 보자
+
+[예제 1] "java길라잡이" 동아리에 가입한 학생의 학번과 이름을 출력하라.
+select stu_no, stu_name
+from ciricel
+where cir_name = 'java길라잡이'
+ 
+[예제 2] "java길라잡이" 동아리에 가입하지 않은 학생의 학번과 이름을 출력하라.
+select stu_no, stu_name
+from ciricel
+where cir_name <> 'java길라잡이'
+
+지금까지는 아무런 문제가 없다. 그 이유는 select 절의 출력 결과 값이 null 값을 포함하지 않고 있기 때문이다.
+만약 select 절의 결과 값 중에 null값을 포함한 데이터가 존재한다면 부정조건을 처리할때 문제가 발생한다.
+
+[예제 3] 등록테이블에서 장학 코드가 '11' 학생의 학번과 장학코드, 장학금 총액을 출력하라.
+select stu_no, jang_code, jang_total
+from fee
+where jang_code = 11;
+
+[예제 4]
+select stu_no, jang_code, jang_total
+from fee
+where jang_code <> 11;
+
+fee 테이블에서 장학코드가 '11'이거나 null 값을 가지고 있는 학생은 제외되었으므로 원하는 데이터가 출려되지 않은 것을 알 수 있다.
+
+
+
+ 
