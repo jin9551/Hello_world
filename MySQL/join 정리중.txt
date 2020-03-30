@@ -1,3 +1,7 @@
+https://wisoft.tistory.com/entry/database-sql-join-method
+조인 설명
+
+
 * 조인에서 사용되는 용어
 
 조인으로 정의된 select 명령문에 있는 열을 조인 열(join column)이라 한다.
@@ -36,3 +40,6 @@ from student, fee
 where student.stu_no =fee.stu_no;
 
 기본적인 join은 equi join과 유사하다. 차이점은 select 절에 있는 조인 열 중 하나만 최종 결과에 주어진다.
+where 절의 조건 연산자가 '='인 경우에 from절에 나오는 좌측에 있는 student테이블의 모집단이 우측의 fee 테이블의 모집단을 전부 포함하고 있다면
+inner equi join이라고 한다.
+만약 우측의 모집단이 좌측의 모집단을 포함하고 있다면 outer equi join이라고 한다.
