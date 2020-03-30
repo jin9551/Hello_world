@@ -1,0 +1,20 @@
+* 순서 번호로 정렬
+select stu_no, fee_year, fee_term, fee_date
+from fee
+where year(fee_date) = 2019
+order by 1;
+
+^ 순서 번호 1은 select에 있는 1번째 수식(stu_no)를 나타낸다. (순서 번호는 각각의 수식을 나타낸다. 2는 fee_year, 3은 fee_term 등등...)
+
+
+* 하나 이상의 열 정렬
+- 안됨.(???)
+
+
+* null 값의 정렬
+
+- null 값은 오름차순 또는 내림차순으로 순서화하는 것과 관계없이 가장 먼저 나타난다.
+- null 값은 오름차순 또는 내림차순으로 순서화하는 것과 관계없이 가장 나중에 나타난다.
+- null 값을 가장 작은 값으로 취급한다.
+- null 값을 기징 큰 값을오 취급한다.
+

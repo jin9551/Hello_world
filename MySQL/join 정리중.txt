@@ -1,0 +1,38 @@
+* 조인에서 사용되는 용어
+
+조인으로 정의된 select 명령문에 있는 열을 조인 열(join column)이라 한다.
+
+조인 열 간에는 어떤 관계성의 형식이 있다. 만약 c1과 c2가 2개의 열이라면 c1과 c2간에는 다음과 같은 4개의 관계 형식이 가능하다.
+1) c1과 c1의 모집단은 동일하다.
+2) c1의 모집단은 c2의 부분 집합이다(Ehsms c2는 c1의 부분집합이다).
+3) c1과 c2의 모집단은 상호 결합된다(공통되는 값을 가지고 있다).
+4) c1과 c2의 모집단은 상호 분리된다(공통되는 값이 없다).
+
+
+
+기본 키, 행, 조인 등은 관계 모델의 용어이다. 관계 모델은 조인의 형식과는 차이가 있다. 
+따라서 다음과 같은 조인 종류와 그 특징에 대하여 설명하겠다.
+
+-Cross join
+-Equi join
+-Outer join
+-Left outer join
+-Self join
+-Union join
+-Alias를 이용한 join
+
+
+일반적인 조인(general join or cross join)은 다음과 같은 형식을 취한다.
+
+select *
+from student, fee
+where student.stu_no ? fee.stu_no;
+
+위의 조인에서 물음표(?)는 임의의 관계 연산자를 나태내고, student.stu_no과 fee.stu_no은 조인열이다.
+관계 연산자가 같다(=)aus Equi join이라 한다. 
+
+select *
+from student, fee
+where student.stu_no =fee.stu_no;
+
+기본적인 join은 equi join과 유사하다. 차이점은 select 절에 있는 조인 열 중 하나만 최종 결과에 주어진다.
