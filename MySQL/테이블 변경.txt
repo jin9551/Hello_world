@@ -1,0 +1,48 @@
+SQL의 insert 명령문은 테이블에 새로운 행을 삽입하기 위해서 사용된다. 이 명령문은 서로 다른 두 가지 형식으로 사용될 수 있다.
+첫 번째 형식은 오직 새로운 행만 삽입할 수 있도록 하지만, 두 번째 형식은 다른 테이블로부터 필요한 행을 가져와 테이블에 삽입하는 것이다.
+
+한 행을 삽입할 때 만약, 꼭 필요한 데이터(not null로 지정된 값 포함) 만을 선택하여 입력하고 싶다면 다음과 같이 insert 명령문에 해당 column를 기입한 후 values 값을 입력해 주면 된다.
+
+insert into professor(prof_code,prof_name) <-  professor 테이블은 4개의 칼럼을 가지고 있다.
+values('6001', '대조영');
+
+
+테이블에서 테이블로 행을 복사 
+
+[정의]
+<insert statement> ::=
+insert into <table specification>
+[<column list>]
+<select statement>
+
+<column list> ::=
+(<column name> [ {, <column name } ...])
+
+[예제]
+insert into a (hi, name, hello, you)
+select(hi,name,hello,you)
+from b
+where (conditions)
+
+
+행 값의 변경
+
+update table_name 
+set target_name = 'vlaue'
+where condition_column_name = 'condition value';
+
+
+update table_name
+set target_name = targe_value+0.5;
+
+^ 절이 생략 되었기 떄문에 갱신은 테이블에서 관련된 모든 행에 대하여 수행된다.
+
+
+행 삭제
+
+delete 명령문은 테이블에서 행을 삭제하기 위해서 사용된다.
+
+delete from table_name
+where sub_name ='운영체제';
+
+만약 where 절이 생략되면 지정된 테이블에 있는 모든 행이 삭제될 것이다.
