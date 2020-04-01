@@ -1,3 +1,131 @@
+https://jojoldu.tistory.com/243
+https://ra2kstar.tistory.com/96
+https://interconnection.tistory.com/97
+https://huskdoll.tistory.com/605
+읽고 시작하자
+
+
+https://ponyozzang.tistory.com/163
+인겟스 설정 방법과 실행방법
+
+
+
+
+
 * 인덱스 작업
 
 SQL은 테이블에 있는 행을 접근하는 방법으로 2가지 방법을 가지고 있는데, 그 하나는 순차적 접근(sequential access) 방법이고 다른 하나는 직접 접근(dirtect access) 방법이다.
+
+
+제 6장에서 기본 기법(basic strategy)의 구성에 관한 구조를 제공했다.
+17장에서는 기본 기법이 데이트를 순차적으로 접근한다고 가정할 때 인덱스의 사용이 어떻게 기본 기법에서 최적화 기법(optimized strategy)으로 변경할 수 있는지 설명한다.
+
+SQL은 각 명령문을 처리하기 위해서 가장 효율적인 기법을 선택한다.
+이러한 분석은 최적화기(optimizer)라는 SQL 모듈에 의해서 수행된다(명령문의 분석을 질의어 최적화(query optimizer)라고도 한다).
+최적화기는 각 명령문에 대하여 여러 가지 기법을 정의하고, 예상되는 실행 시간, 행의 수와 인덱스의 존재(인덱스가 없는 것이 기본 기법) 등의 요소를 기초로 하여
+가장 효율적인 기법을 찾아낸다.
+SQL은 선택된 기법에 따라 명령문을 실행한다.
+
+여기서 최적화 처리 기법에 대하여 간단히 설명해 보자.
+
+
+select *
+from student
+where stu_no = '20191001'
+
+from 절에서, 일반적으로 sql은 student 테이블에 있는 모든행을 검색하게 된다.
+인덱스를 사용하여 처리 속도를 증가시킨다는 것은 stu_no열의 값이 20191001인 행만 가져온다는 것이다.
+
+예제의 where 절에서는 from 절의 결과 중에서 20191001인 행만 가져오고, select 절에서는 모든 열이 출력된다.
+기본 기법과 이와 같은 최적화 기법간의 차이점은 다른 방법으로 표현할 수 있다.
+
+ [기본 기법]
+ result :=[];
+ for each h in student do
+ if h.stu_no = '20191001' then reult: +h;
+ end for;
+
+ [최적화 기법]
+ result := [];
+ for each h in student where stu_no='20191001' do
+ result:+h;
+ end for
+
+ 첫 번쨰에서 기본 기법은 for each 명령문에 의해서 모든 행을 가져온다. 두번째 기법인 최적화 기법은 아주 선택적으로 수행할 수 있는데, 인덱스가 사용되면 학번이 20191001 행만 검색된다.
+
+
+
+* 인덱스의 생성과 삭제
+
+create index 명령문의 정의는 다음과 같다.
+
+<create index statement> ::=
+    create [unique] index <index name>
+    on <table specification>
+        ( <column in index> [{,<column in index}...])
+    <column in index>
+        <column name> [asc|desc]
+
+유일하지 않은 인덱스 생성
+
+create index sample_index1
+on table_name(sample_column asc);
+
+create index sample_index1
+on table_name(sample_column, column2,...);
+
+
+유일한 인덱스 생성
+
+create uniqe index sample_index2
+on table_name(sample column, column2,...);
+
+
+[예제]
+create uniqe index stu_idx2
+on student(stu_name, class);
+
+일단 이 명령문(예제)이 입력되면 SQL은 student 테이블에 입력되는 이름과 반의 글자의 조합하므로 동일한 두개의 조합이 존재할 수 없다.
+
+
+인덱스 제거
+
+drop index index_name;
+
+
+
+* MySQL과 인덱스
+MySQL에서 create index 명령문만이 인덱스를 생성하는 유일한 방법은 아니다. 만약 기본키 또는 대체 키가 create table 명령문에 포함된다면 MySQL는 유일한 인덱스를 자동적으로 생성한다.
+
+
+
+
+인덱스를 사용하는 이유 
+
+WHERE 구문과 일치하는 열을 빨리 찾기 위해서.
+
+열을 고려 대상에서 빨리 없애 버리기 위해서. 
+
+조인 (join)을 실행할 때 다른 테이블에서 열을 추출하기 위해서.
+
+특정하게 인덱스된 컬럼을 위한 MIN() 또는 MAX() 값을 찾기 위해서.
+
+사용할 수 있는 키의 최 좌측 접두사 (leftmost prefix)를 가지고 정렬 및 그룹화를 하기 위해서.
+
+데이터 열을 참조하지 않는 상태로 값을 추출하기 위해서 쿼리를 최적화 하는 경우에.
+
+
+
+인덱스를 사용해야 하는 경우 
+
+데이터 양이 많고 검색이 변경보다 빈번한 경우
+
+인덱스를 걸고자 하는 필드의 값이 다양한 값을 가지는 경우 
+
+
+
+
+
+
+
+

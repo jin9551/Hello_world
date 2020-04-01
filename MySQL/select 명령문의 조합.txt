@@ -30,3 +30,22 @@ UNION은 중복된 행을 자동적으로 삭제한다. 중복된 행을 삭제�
 
 만약 두 개의 선택 블록이 UNION ALL 연산으로 결합된다면 최종 결과는 두 개의 선택 블록에서 생성된 결과로부터 생성된다.
 UNION과 UNION ALL의 유일한 차이점은 중복된 행을 그대로 유지하냐 안하냐이다.
+
+
+최적화 방법
+or 는 in 혹은 union으로 대체하자.
+
+update fee
+set jang_toal = 10000
+where jang_total <=20000
+or fee_date = '2019-01-01';
+
+은 아래와 같이 바꿀 수 있다.
+
+update fee
+set jang_total = 10000
+where jang_total<=20000
+union
+update fee
+set jang_toal = 10000
+where fee_date = '2019-01-01';

@@ -36,13 +36,14 @@ SQL은 주어진 값의 범위에 어떤 값이 포함되어 있는지를 결정
 select stu_no, stu_name, age
 from ages
 where age >= 20
-and age <= 23;
+and age <= 23; <- 이게 범위이다 >= 과 <=
 
 위의 명령문은 between 연산자를 사용하여 다음과 같이 다시 작성할 수 있다.
 
 select stu_no, stu_name, age
 from ages
 where age between 20 and 23;
+
 
 
 

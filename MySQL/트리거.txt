@@ -1,0 +1,21 @@
+트리거란 이름이 있는 데이터베이스 오브젝트(named database object)로서 데이터베이스가 미리 정해 놓은 조건을 만족하거나 어떤 동작이 수행되면 자동적으로 수행되는 저장 프로시저이다.
+또한 테이블과 연된되어 이씅며, 특정 이벤특 ㅏ테이블에 대해 발생하면 동작을 하게 된다.
+
+* create trigger 구문
+
+CREATE
+[definer = {user|current_user}]
+TRIGGER trigger_name trigger_time trigger_event
+ON tbl_name FOR EACH ROW trigger_stmt
+
+
+
+https://doorbw.tistory.com/23
+
+https://blog.work6.kr/154
+https://linuxism.ustd.ip.or.kr/511
+
+* drop trigger 구문
+
+
+DROP TRIGGER [schema_name.] trigger_name
