@@ -43,3 +43,5 @@ where student.stu_no =fee.stu_no;
 where 절의 조건 연산자가 '='인 경우에 from절에 나오는 좌측에 있는 student테이블의 모집단이 우측의 fee 테이블의 모집단을 전부 포함하고 있다면
 inner equi join이라고 한다.
 만약 우측의 모집단이 좌측의 모집단을 포함하고 있다면 outer equi join이라고 한다.
+
+
