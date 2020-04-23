@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title> 재귀함수 </title>
+</head>
+<body>
+	<script>
+    //   다음은 재귀 함수 호출을 적용하여 1부터 10까지의 값을 출력하는 예제입니다.
+    var num = 0;
+    function testFnc(){
+        num++;
+        document.write(num,"<br>");
+        if(num == 10)return;
+
+        testFnc();
+    }
+    testFnc();
+	</script>
+</body>
+</html>
