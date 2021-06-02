@@ -4,8 +4,8 @@ import smtplib
 from email.mime.text import MIMEText
 
 smtp_info = dict({"smtp_server" : "smtp.naver.com", # SMTP 서버 주소
-                  "smtp_user_id" : "jinha3253@naver.com", #송신자 메일
-                  "smtp_user_pw" : "toktoktg" ,    #송신자 메일 비밀번호
+                  "smtp_user_id" : "jinha@naver.com", #송신자 메일
+                  "smtp_user_pw" : "비밀번호" ,    #송신자 메일 비밀번호
                   "smtp_port" : 587}) # SMTP 서버 포트
                   
 def send_email(smtp_info, msg):
@@ -28,15 +28,15 @@ def send_email(smtp_info, msg):
 
 
 smtp_info = dict({"smtp_server" : "smtp.naver.com", # SMTP 서버 주소
-                  "smtp_user_id" : "jinha3253@naver.com", 
-                  "smtp_user_pw" : "toktoktg", 
+                  "smtp_user_id" : "jinha@naver.com", 
+                  "smtp_user_pw" : "비밀번호", 
                   "smtp_port" : 587}) # SMTP 서버 포트
 
 # 메일 내용 작성
 title = "기본 이메일 입니다."
-content = "파이썬 프로그램으로 보내는 메일.\n여보 안녕\n"
-sender = "jinha3253@naver.com"
-receiver = "jyoon_93@naver.com" 
+content = "파이썬 프로그램으로 보내는 메일.\n\n"
+sender = "jinha@naver.com"
+receiver = "@naver.com" 
 
 # 메일 객체 생성 : 메시지 내용에는 한글이 들어가기 때문에 한글을 지원하는 문자 체계인 UTF-8을 명시해줍니다.
 msg = MIMEText(_text = content, _charset = "utf-8") # 메일 내용
